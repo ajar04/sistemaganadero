@@ -173,6 +173,7 @@
           </div>
           <a href="?module=empleados&form=add" class="small-box-footer" title="Agregar Empleado" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
         </div>
+
       </div><!-- ./col -->
     </div><!-- /.row -->
   </section><!-- /.content -->

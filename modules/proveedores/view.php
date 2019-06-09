@@ -1,9 +1,9 @@
 <section class="content-header">
   <h1>
-    <i class="fa fa-folder-o icon-title"></i> Listado de Lotes
+    <i class="fa fa-folder-o icon-title"></i> Datos de Proveedores
 
-    <a class="btn btn-success btn-social pull-right" href="?module=form_lotes&form=add" title="agregar" data-toggle="tooltip">
-      <i class="fa fa-edit fa-fw"></i> Registrar Lote
+    <a class="btn btn-success btn-social pull-right" href="?module=form_proveedores&form=add" title="agregar" data-toggle="tooltip">
+      <i class="fa fa-edit fa-fw"></i> Registrar Proveedor
     </a>
   </h1>
 
@@ -24,7 +24,7 @@
       echo "<div class='alert alert-success alert-dismissable'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
               <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
-             Nuevos lotes de finca han sido  almacenado correctamente.
+             Nuevos datos de proveedor han sido  almacenado correctamente.
             </div>";
     }
 
@@ -32,7 +32,7 @@
       echo "<div class='alert alert-success alert-dismissable'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
               <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
-             Datos del Lote han sido modificados correcamente.
+             Datos del proveedor modificados correcamente.
             </div>";
     }
 
@@ -40,7 +40,7 @@
       echo "<div class='alert alert-success alert-dismissable'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
               <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
-            Se eliminaron los datos del Lote
+            Se eliminaron los datos del Proveedor
             </div>";
     }
     ?>
@@ -52,29 +52,35 @@
       
             <thead>
               <tr>
-                <th class="center">Codigo</th>
-                <th class="center">lote</th>
+                <th width="30" class="center">Nit</th>
+                <th width="180" class="center">Nombre Empresa</th>
+                <th width="180" class="center">direccion</th>
+                <th width="90" class="center">Correo</th>
+                <th width="90" class="center">Telefono</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
             <?php  
-            $query = mysqli_query($mysqli, "SELECT id,lote FROM lote ORDER BY id DESC")
+            $query = mysqli_query($mysqli, "SELECT * FROM proveedor ORDER BY id DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
             while ($data = mysqli_fetch_assoc($query)) { 
               $id = format_rupiah($data['id']);
            
               echo "<tr>
-                      <td width='80' class='center'>$data[id]</td>
-                      <td width='180'>$data[lote]</td>
+                      <td width='30' class='center'>$data[id]</td>
+                      <td width='180'>$data[nombre]</td>
+                      <td width='180'>$data[direccion]</td>
+                      <td width='90'>$data[email]</td>
+                      <td width='90'>$data[telefono]</td>
                       <td class='center' width='80'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='modificar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_lotes&form=edit&id=$data[id]'>
+                          <a data-toggle='tooltip' data-placement='top' title='modificar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_proveedores&form=edit&id=$data[id]'>
                               <i style='color:#fff' class='glyphicon glyphicon-edit'></i>
                           </a>";
             ?>
-                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/lotes/proses.php?act=delete&id=<?php echo $data['id'];?>" onclick="return confirm('estas seguro de eliminar el lote <?php echo $data['lote']; ?> ?');">
+                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/Proveedores/proses.php?act=delete&id=<?php echo $data['id'];?>" onclick="return confirm('estas seguro de eliminar el Proveedor <?php echo $data['nombre']; ?> ?');">
                               <i style="color:#fff" class="glyphicon glyphicon-trash"></i>
                           </a>
             <?php

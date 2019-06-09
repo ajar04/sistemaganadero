@@ -112,12 +112,10 @@ if ($_GET['form']=='add') { ?>
                     <label class="col-sm-2 col-form-label">Raza</label>
                     <div class="col-sm-4">
                       <?php
-                      $server   = "localhost";
-                      $username = "root";
-                      $password = "";
-                      $database = "gestionganadera";
-                      $conexion = @new mysqli($server, $username, $password, $database);
 
+                      require_once "config/conection.php";
+                      $conexion = @new mysqli($server, $username, $password, $database);
+                      
                       if ($conexion->connect_error) //verificamos si hubo un error al conectar, recuerden que pusimos el @ para evitarl
                       {
                       die('Error de conexión: ' . $conexion->connect_error); //si hay un error termina la aplicación y mostramos el error
@@ -147,10 +145,7 @@ if ($_GET['form']=='add') { ?>
                     <label class="col-sm-2 col-form-label">Color</label>
                     <div class="col-sm-4">
                       <?php
-                      $server   = "localhost";
-                      $username = "root";
-                      $password = "";
-                      $database = "gestionganadera";
+                      require_once "config/conection.php";
                       $conexion = @new mysqli($server, $username, $password, $database);
 
                       if ($conexion->connect_error) //verificamos si hubo un error al conectar, recuerden que pusimos el @ para evitarl
@@ -356,10 +351,7 @@ elseif ($_GET['form']=='edit') {
                 <label class="col-sm-2 control-label">Raza</label>
                 <div class="col-sm-4">
                   <?php
-                      $server   = "localhost";
-                      $username = "root";
-                      $password = "";
-                      $database = "gestionganadera";
+                      require_once "config/conection.php";
                       $conexion = @new mysqli($server, $username, $password, $database);
 
                       if ($conexion->connect_error) //verificamos si hubo un error al conectar, recuerden que pusimos el @ para evitarl
@@ -392,10 +384,7 @@ elseif ($_GET['form']=='edit') {
                 <label class="col-sm-2 control-label">Color</label>
                 <div class="col-sm-5">
                   <?php
-                      $server   = "localhost";
-                      $username = "root";
-                      $password = "";
-                      $database = "gestionganadera";
+                      require_once "config/conection.php";
                       $conexion = @new mysqli($server, $username, $password, $database);
 
                       if ($conexion->connect_error) //verificamos si hubo un error al conectar, recuerden que pusimos el @ para evitarl

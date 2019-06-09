@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-05-2019 a las 14:46:41
+-- Tiempo de generación: 07-06-2019 a las 01:51:00
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -42,7 +42,8 @@ CREATE TABLE `afaro` (
 --
 
 INSERT INTO `afaro` (`id`, `id_potrero`, `id_vegetacion`, `id_empleado`, `peso`, `fecha`) VALUES
-(0, 1, 1, 1093769740, 20, '2019-05-23');
+(0, 1, 66, 1093769740, 234, '2019-06-05'),
+(1, 1, 11, 1093769740, 20, '2019-05-23');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,7 @@ CREATE TABLE `animal` (
 --
 
 INSERT INTO `animal` (`id`, `nombre`, `sexo`, `estado`, `propietario`, `registro`, `fecha_nac`, `fecha_dest`, `peso_nac`, `peso_dest`, `raza`, `color`, `marca_oreja`, `marca_hierro`, `tipo_propo`, `procedencia`, `precio_venta`) VALUES
-(1, 'Machito', 'Macho', 'Activo', 1, '10936728', '2018-04-19', '2018-10-19', 40, 60, 4, 6, 'au12', '1', 'Carne', 'vereda san juan', 250000),
+(1, 'Machito', 'Macho', 'Activo', 1, '10936728', '2018-04-19', '2018-10-19', 40, 60, 3, 3, 'au12', '1', 'Carne', 'vereda san juan', 250000),
 (3, 'manchona', 'Hembra', 'Activo', 1, '123527', '2018-08-14', '2019-01-16', 30.5, 13.5, 2, 2, 'asu2', '14a', 'Lechero', 'vereda jun', 250000),
 (6, 'cortica', 'Hembra', 'Activo', 1, '13245366', '2018-11-20', '2019-05-14', 27, 49, 15, 3, 'sae2', 'sae2', 'Lechero', 'toledo', 300000),
 (7, 'rezonante', 'Macho', 'Activo', 1, '1234152', '2018-11-08', '2019-05-16', 0, 2019, 2, 2, 'as3', 'as3', 'Carne', 'nn', 542312);
@@ -151,7 +152,8 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id`, `nombre`, `direccion`, `fecha_nac`, `sexo`, `correo`, `salario`, `cargo`, `estado`, `usuario_creacion`, `fecha_creacion`, `usuario_edicion`, `fecha_edicion`) VALUES
-(1093769740, 'jefersson PeÃ±aranda', 'CLL40#1-21', '1993-11-13', 'Hombre', 'harbey.14@gmail.com', 2500000, '', 'Activo', 1, '2019-05-22 23:48:11', 1, '2019-05-22 23:48:11');
+(88265144, 'alvaro arias', 'atalaya', '1983-04-13', 'Hombre', 'alvarojosear@ufps.edu.co', 2500000, 'Administrador', 'Activo', 1, '2019-06-06 20:46:19', 1, '2019-06-06 20:46:19'),
+(1093769740, 'jefersson PeÃ±aranda', 'CLL40#1-21', '1993-11-13', 'Hombre', 'harbey.14@gmail.com', 2500000, 'Administrador', 'Activo', 1, '2019-05-22 23:48:11', 1, '2019-05-22 23:48:11');
 
 -- --------------------------------------------------------
 
@@ -195,14 +197,21 @@ CREATE TABLE `lote_potrero` (
 --
 
 CREATE TABLE `peso_animal` (
+  `id` int(11) NOT NULL,
   `id_animal` int(11) NOT NULL,
-  `nombre_animal` varchar(40) NOT NULL,
+  `id_empleado` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `peso` int(4) NOT NULL,
-  `fecha_peso_ant` date NOT NULL,
-  `peso_ant` int(4) NOT NULL,
-  `ganancia` int(4) NOT NULL
+  `peso` float NOT NULL,
+  `ganancia` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `peso_animal`
+--
+
+INSERT INTO `peso_animal` (`id`, `id_animal`, `id_empleado`, `fecha`, `peso`, `ganancia`) VALUES
+(4, 6, 1093769740, '2019-06-05', 234, 0),
+(8, 3, 1093769740, '2019-06-06', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -211,10 +220,12 @@ CREATE TABLE `peso_animal` (
 --
 
 CREATE TABLE `peso_leche` (
-  `id_empleado` int(11) NOT NULL,
-  `fecha` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `id_animal` int(11) NOT NULL,
-  `hora` varchar(20) NOT NULL,
+  `id_empleado` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `peso_am` int(4) NOT NULL,
+  `peso_pm` int(4) NOT NULL,
   `peso` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -229,7 +240,8 @@ CREATE TABLE `potrero` (
   `nombre` varchar(60) NOT NULL,
   `area` varchar(30) NOT NULL,
   `coordenadas` varchar(20) NOT NULL,
-  `dias_ent_anim` varchar(50) NOT NULL,
+  `dias_ent_anim` varchar(15) NOT NULL,
+  `dias_sal_anim` varchar(15) NOT NULL,
   `est_cerca` varchar(60) NOT NULL,
   `cap_ganado` int(10) NOT NULL,
   `observacion` varchar(100) NOT NULL,
@@ -243,8 +255,9 @@ CREATE TABLE `potrero` (
 -- Volcado de datos para la tabla `potrero`
 --
 
-INSERT INTO `potrero` (`id`, `nombre`, `area`, `coordenadas`, `dias_ent_anim`, `est_cerca`, `cap_ganado`, `observacion`, `usuario_creacion`, `fecha_creacion`, `usuario_edicion`, `fecha_edicion`) VALUES
-(1, 'potrero juan', '2000 M2', '', 'Lunes-Martes', 'Cercado', 100, '', 1, '2019-05-17 02:38:56', 1, '2019-05-17 02:38:56');
+INSERT INTO `potrero` (`id`, `nombre`, `area`, `coordenadas`, `dias_ent_anim`, `dias_sal_anim`, `est_cerca`, `cap_ganado`, `observacion`, `usuario_creacion`, `fecha_creacion`, `usuario_edicion`, `fecha_edicion`) VALUES
+(1, '', '2000 M2', '', 'Jueves', '', 'Cercado', 100, '', 1, '2019-05-17 02:38:56', 1, '2019-05-17 02:38:56'),
+(2, 'llano grande', '5000', '7.308772, -72.487832', 'Lunes', 'Viernes', 'Cerca Electrica', 200, '', 1, '2019-06-06 21:51:56', 1, '2019-06-06 21:51:56');
 
 -- --------------------------------------------------------
 
@@ -378,7 +391,6 @@ CREATE TABLE `vegetacion` (
 --
 
 INSERT INTO `vegetacion` (`id`, `tipo_vegetacion`, `nombre`, `observacion`) VALUES
-(1, 1, 'nose', 'prueba'),
 (2, 1, 'Brachiaria Decumbens', ''),
 (3, 1, 'Pasto Natural', ''),
 (4, 1, 'Acacia', ''),
@@ -442,7 +454,9 @@ INSERT INTO `vegetacion` (`id`, `tipo_vegetacion`, `nombre`, `observacion`) VALU
 (62, 1, 'Ramio', ''),
 (63, 1, 'Saman', ''),
 (64, 1, 'Sorgo Forrajero', ''),
-(65, 1, 'Totumo', '');
+(65, 1, 'Totumo', ''),
+(66, 1, 'pasto natural', ''),
+(67, 1, 'a', '');
 
 --
 -- Índices para tablas volcadas
@@ -453,10 +467,10 @@ INSERT INTO `vegetacion` (`id`, `tipo_vegetacion`, `nombre`, `observacion`) VALU
 --
 ALTER TABLE `afaro`
   ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD UNIQUE KEY `id_empleado` (`id_empleado`),
-  ADD UNIQUE KEY `id_vegetacion` (`id_vegetacion`),
-  ADD UNIQUE KEY `id_potrero` (`id_potrero`),
-  ADD UNIQUE KEY `id_potrero_2` (`id_potrero`);
+  ADD KEY `id_empleado` (`id_empleado`) USING BTREE,
+  ADD KEY `id_vegetacion` (`id_vegetacion`) USING BTREE,
+  ADD KEY `id_potrero_2` (`id_potrero`) USING BTREE,
+  ADD KEY `id_potrero` (`id_potrero`) USING BTREE;
 
 --
 -- Indices de la tabla `animal`
@@ -506,14 +520,17 @@ ALTER TABLE `lote_potrero`
 -- Indices de la tabla `peso_animal`
 --
 ALTER TABLE `peso_animal`
-  ADD PRIMARY KEY (`id_animal`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pesaje_animal` (`id_animal`),
+  ADD KEY `pesaje_empleado` (`id_empleado`);
 
 --
 -- Indices de la tabla `peso_leche`
 --
 ALTER TABLE `peso_leche`
-  ADD PRIMARY KEY (`id_empleado`,`id_animal`),
-  ADD KEY `peso_animal` (`id_animal`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `leche_animal` (`id_animal`),
+  ADD KEY `leche_empleado` (`id_empleado`);
 
 --
 -- Indices de la tabla `potrero`
@@ -570,10 +587,22 @@ ALTER TABLE `color`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT de la tabla `peso_animal`
+--
+ALTER TABLE `peso_animal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `peso_leche`
+--
+ALTER TABLE `peso_leche`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `potrero`
 --
 ALTER TABLE `potrero`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `raza`
@@ -603,7 +632,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `vegetacion`
 --
 ALTER TABLE `vegetacion`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- Restricciones para tablas volcadas
@@ -650,14 +679,15 @@ ALTER TABLE `lote_potrero`
 -- Filtros para la tabla `peso_animal`
 --
 ALTER TABLE `peso_animal`
-  ADD CONSTRAINT `pesoanimal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id`);
+  ADD CONSTRAINT `pesaje_animal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id`),
+  ADD CONSTRAINT `pesaje_empleado` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id`);
 
 --
 -- Filtros para la tabla `peso_leche`
 --
 ALTER TABLE `peso_leche`
-  ADD CONSTRAINT `peso_animal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id`),
-  ADD CONSTRAINT `peso_empleado` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id`);
+  ADD CONSTRAINT `leche_animal` FOREIGN KEY (`id_animal`) REFERENCES `animal` (`id`),
+  ADD CONSTRAINT `leche_empleado` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id`);
 
 --
 -- Filtros para la tabla `vegetacion`

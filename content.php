@@ -11,17 +11,7 @@ else {
 	if ($_GET['module'] == 'start') {
 		include "modules/start/view.php";
 	}
-	elseif ($_GET['module'] == 'medicines') {
-		include "modules/medicines/view.php";
-	}
 
-	elseif ($_GET['module'] == 'inicio') {
-		include "modules/inicio/view.php";
-	}
-
-	elseif ($_GET['module'] == 'form_medicines') {
-		include "modules/medicines/form.php";
-	}
 	elseif ($_GET['module'] == 'animales') {
 		include "modules/animales/view.php";
 	}
@@ -51,16 +41,22 @@ else {
 	elseif ($_GET['module'] == 'pesaje_leche') {
 		include "modules/pesaje_leche/view.php";
 	}
+	elseif ($_GET['module'] == 'form_pesaje_leche') {
+		include "modules/pesaje_leche/form.php";
+	}
 
 	elseif ($_GET['module'] == 'pesaje_ganado') {
 		include "modules/pesaje_ganado/view.php";
 	}
-	elseif ($_GET['module'] == 'afaros') {
-		include "modules/afaros/view.php";
+	elseif ($_GET['module'] == 'form_pesaje_ganado') {
+		include "modules/pesaje_ganado/form.php";
+	}
+	elseif ($_GET['module'] == 'aforos') {
+		include "modules/aforos/view.php";
 	}
 
-	elseif ($_GET['module'] == 'form_afaros') {
-		include "modules/afaros/form.php";
+	elseif ($_GET['module'] == 'form_aforos') {
+		include "modules/aforos/form.php";
 	}
 	elseif ($_GET['module'] == 'potreros') {
 		include "modules/potreros/view.php";
@@ -91,13 +87,6 @@ else {
 		include "modules/tipo_ctr_potrero/form.php";
 	}
 
-	elseif ($_GET['module'] == 'medicines_transaction') {
-		include "modules/medicines_transaction/view.php";
-	}
-
-	elseif ($_GET['module'] == 'form_medicines_transaction') {
-		include "modules/medicines_transaction/form.php";
-	}
 	elseif ($_GET['module'] == 'empleados') {
 		include "modules/empleados/view.php";
 	}
@@ -105,13 +94,23 @@ else {
 	elseif ($_GET['module'] == 'form_empleados') {
 		include "modules/empleados/form.php";
 	}
+	elseif ($_GET['module'] == 'proveedores') {
+		include "modules/proveedores/view.php";
+	}
+
+	elseif ($_GET['module'] == 'form_proveedores') {
+		include "modules/proveedores/form.php";
+	}
 
 	elseif ($_GET['module'] == 'stock_inventory') {
 		include "modules/stock_inventory/view.php";
 	}
 
-	elseif ($_GET['module'] == 'stock_report') {
-		include "modules/stock_report/view.php";
+	elseif ($_GET['module'] == 'reporte_pesaje_ganado') {
+		include "modules/reporte_pesaje_ganado/view.php";
+	}
+	elseif ($_GET['module'] == 'reporte_pesaje_leche') {
+		include "modules/reporte_pesaje_leche/view.php";
 	}
 
 	elseif ($_GET['module'] == 'user') {

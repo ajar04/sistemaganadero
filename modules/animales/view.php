@@ -54,7 +54,16 @@
             </thead>
             <tbody>
             <?php  
-            $query = mysqli_query($mysqli, "SELECT id,nombre,sexo,estado,propietario,registro,fecha_nac,fecha_dest,peso_nac,peso_dest,raza,color,marca_oreja,marca_hierro,tipo_propo,procedencia,precio_venta FROM animal ORDER BY id DESC")
+            $query = mysqli_query($mysqli, "SELECT (a.id)as id,(a.nombre)as nombre,(a.sexo)as sexo,(a.estado)as estado,
+                                            (a.propietario)as propietario,(a.registro)as registro,(a.fecha_nac)as fecha_nac,
+                                            (a.fecha_dest)as fecha_dest,(a.peso_nac)as peso_nac,(a.peso_dest)as peso_dest,
+                                            (r.raza)as raza,(c.color)as color,(a.marca_oreja)as marca_oreja,
+                                            (a.marca_hierro)as marca_hierro,(a.tipo_propo)as tipo_propo,
+                                            (a.procedencia)as procedencia,(a.precio_venta)as precio_venta
+                                            FROM animal a INNER JOIN raza r ON a.raza=r.id 
+                                            INNER JOIN color c ON a.color=c.id 
+                                            WHERE a.raza=r.id AND a.color=c.id
+                                            ORDER BY id DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
             while ($data = mysqli_fetch_assoc($query)) { 
@@ -88,8 +97,19 @@
             ?>
             </tbody>
           </table>
+
+         
         </div><!-- /.box-body -->
-      </div><!-- /.box -->
+      </div>
+      <!-- /.box -->
     </div><!--/.col -->
   </div>   <!-- /.row -->
+   <div class="box-footer">
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
+                        <a href="?module=pesaje_ganado" class="btn btn-danger btn-reset">Cancelar</a>
+                      </div>
+                    </div>
+                  </div>
 </section><!-- /.content

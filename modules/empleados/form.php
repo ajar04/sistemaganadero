@@ -74,7 +74,7 @@ if ($_GET['form']=='add') { ?>
                 <div class="col-sm-5">
                   <div class="input-group">
                     <span class="input-group-addon">$.</span>
-                    <input type="text" class="form-control" id="salario" name="salario" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" required>
+                    <input type="text" class="form-control" id="salario" name="salario" autocomplete="off" onKeyPress="return goodchars(event,'0123456789.',this)" required>
                   </div>
                 </div>
               </div>

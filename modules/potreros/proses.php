@@ -17,6 +17,7 @@ else {
             $area  = mysqli_real_escape_string($mysqli, trim($_POST['area']));
             $coordenadas  = mysqli_real_escape_string($mysqli, trim($_POST['coordenadas']));
             $dias_ent_anim  = mysqli_real_escape_string($mysqli, trim($_POST['dias_ent_anim']));
+            $dias_sal_anim  = mysqli_real_escape_string($mysqli, trim($_POST['dias_sal_anim']));
             $est_cerca  = mysqli_real_escape_string($mysqli, trim($_POST['est_cerca']));
             $cap_ganado  = mysqli_real_escape_string($mysqli, trim($_POST['cap_ganado']));
             $observacion  = mysqli_real_escape_string($mysqli, trim($_POST['observacion']));
@@ -24,8 +25,8 @@ else {
             $usuario_creacion = $_SESSION['id_user'];
 
   
-            $query = mysqli_query($mysqli, "INSERT INTO potrero(id,nombre,area,coordenadas,dias_ent_anim,est_cerca,cap_ganado,observacion,usuario_creacion,usuario_edicion) 
-                                            VALUES('$id','$nombre','$area','$coordenadas','$dias_ent_anim','$est_cerca','$cap_ganado','$observacion','$usuario_creacion','$usuario_creacion')")
+            $query = mysqli_query($mysqli, "INSERT INTO potrero(id,nombre,area,coordenadas,dias_ent_anim,dias_sal_anim,est_cerca,cap_ganado,observacion,usuario_creacion,usuario_edicion) 
+                                            VALUES('$id','$nombre','$area','$coordenadas','$dias_ent_anim','$dias_sal_anim','$est_cerca','$cap_ganado','$observacion','$usuario_creacion','$usuario_creacion')")
                                             or die('error '.mysqli_error($mysqli));    
 
         
@@ -45,6 +46,7 @@ else {
             $area  = mysqli_real_escape_string($mysqli, trim($_POST['area']));
             $coordenadas  = mysqli_real_escape_string($mysqli, trim($_POST['coordenadas']));
             $dias_ent_anim  = mysqli_real_escape_string($mysqli, trim($_POST['dias_ent_anim']));
+            $dias_sal_anim  = mysqli_real_escape_string($mysqli, trim($_POST['dias_sal_anim']));
             $est_cerca  = mysqli_real_escape_string($mysqli, trim($_POST['est_cerca']));
             $cap_ganado  = mysqli_real_escape_string($mysqli, trim($_POST['cap_ganado']));
             $observacion  = mysqli_real_escape_string($mysqli, trim($_POST['observacion']));
@@ -55,6 +57,7 @@ else {
                                                                     area            = '$area',
                                                                     coordenadas     = '$coordeadas',
                                                                     dias_ent_anim   = '$dias_ent_anim',
+                                                                    dias_sal_anim   = '$dias_sal_anim',
                                                                     est_cerca       = '$est_cerca',
                                                                     cap_ganado      = '$cap_ganado',
                                                                     observacion     = '$observacion',

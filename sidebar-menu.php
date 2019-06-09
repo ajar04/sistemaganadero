@@ -89,13 +89,13 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
       <?php
     }
 //___________________________________________________________________________________________________________________
-    if ($_GET["module"]=="afaros") { ?>
+    if ($_GET["module"]=="aforos") { ?>
       <li class="active treeview">
         <a href="javascript:void(0);">
           <i class="glyphicon glyphicon-leaf"></i> <span>Praderas</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li class="active"><a href="?module=afaros"><i class="fa fa-circle-o"></i> Afaros </a></li>
+          <li class="active"><a href="?module=aforos"><i class="fa fa-circle-o"></i> Aforos </a></li>
           <li><a href="?module=potreros"><i class="fa fa-circle-o"></i> Potreros </a></li>
           <li><a href="?module=ocupa_potreros"><i class="fa fa-circle-o"></i> Ocupacion Potreros</a></li>
           <li><a href="?module=tipo_ctr_potrero"><i class="fa fa-circle-o"></i> Tipo Control Potreros</a></li>
@@ -112,7 +112,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
           <i class="glyphicon glyphicon-leaf"></i> <span>Praderas</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="?module=afaros"><i class="fa fa-circle-o"></i> Afaros </a></li>
+          <li><a href="?module=aforos"><i class="fa fa-circle-o"></i> Aforos </a></li>
           <li class="active"><a href="?module=potreros"><i class="fa fa-circle-o"></i> Potreros </a></li>
           <li><a href="?module=ocupa_potreros"><i class="fa fa-circle-o"></i> Ocupacion Potreros</a></li>
           <li><a href="?module=tipo_ctr_potrero"><i class="fa fa-circle-o"></i> Tipo Control Potreros</a></li>
@@ -128,7 +128,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
           <i class="glyphicon glyphicon-leaf"></i> <span>Praderas</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="?module=afaros"><i class="fa fa-circle-o"></i> Afaros </a></li>
+          <li><a href="?module=aforos"><i class="fa fa-circle-o"></i> Aforos </a></li>
           <li><a href="?module=potreros"><i class="fa fa-circle-o"></i> Potreros </a></li>
           <li class="active"><a href="?module=ocupa_potreros"><i class="fa fa-circle-o"></i> Ocupacion Potreros </a></li>
           <li><a href="?module=tipo_ctr_potrero"><i class="fa fa-circle-o"></i> Tipo Control Potreros</a></li>
@@ -144,7 +144,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
           <i class="glyphicon glyphicon-leaf"></i> <span>Praderas</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="?module=afaros"><i class="fa fa-circle-o"></i> Afaros </a></li>
+          <li><a href="?module=aforos"><i class="fa fa-circle-o"></i> Aforos </a></li>
           <li><a href="?module=potreros"><i class="fa fa-circle-o"></i> Potreros </a></li>
           <li><a href="?module=ocupa_potreros"><i class="fa fa-circle-o"></i> Ocupacion Potreros </a></li>
           <li class="active"><a href="?module=tipo_ctr_potrero"><i class="fa fa-circle-o"></i> Tipo Control Potreros</a></li>
@@ -160,7 +160,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
           <i class="glyphicon glyphicon-leaf"></i> <span>Praderas</span><i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="?module=afaros"><i class="fa fa-circle-o"></i> Afaros </a></li>
+          <li><a href="?module=aforos"><i class="fa fa-circle-o"></i> Aforos </a></li>
           <li><a href="?module=potreros"><i class="fa fa-circle-o"></i> Potreros </a></li>
           <li><a href="?module=ocupa_potreros"><i class="fa fa-circle-o"></i> Ocupacion Potreros </a></li>
           <li><a href="?module=tipo_ctr_potrero"><i class="fa fa-circle-o"></i> Tipo Control Potreros</a></li>
@@ -176,7 +176,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
           <i class="glyphicon glyphicon-leaf"></i> <span>Praderas</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="?module=afaros"><i class="fa fa-circle-o"></i> Afaros </a></li>
+          <li><a href="?module=aforos"><i class="fa fa-circle-o"></i> Aforos </a></li>
           <li><a href="?module=potreros"><i class="fa fa-circle-o"></i> Potreros </a></li>
           <li><a href="?module=ocupa_potreros"><i class="fa fa-circle-o"></i> Ocupacion Potreros </a></li>
           <li><a href="?module=tipo_ctr_potrero"><i class="fa fa-circle-o"></i> Tipo Control Potreros</a></li>
@@ -192,7 +192,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
           <i class="glyphicon glyphicon-leaf"></i> <span>Praderas</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
-          <li><a href="?module=afaros"><i class="fa fa-circle-o"></i> Afaros </a></li>
+          <li><a href="?module=aforos"><i class="fa fa-circle-o"></i> Aforos </a></li>
           <li><a href="?module=potreros"><i class="fa fa-circle-o"></i> Potreros </a></li>
           <li><a href="?module=ocupa_potreros"><i class="fa fa-circle-o"></i> Ocupacion potreros </a></li>
           <li><a href="?module=tipo_ctr_potrero"><i class="fa fa-circle-o"></i> Tipo Control Potreros</a></li>
@@ -212,6 +212,8 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
         <ul class="treeview-menu">
           <li class="active"><a href="?module=pesaje_leche"><i class="fa fa-circle-o"></i> Pesaje de leche </a></li>
           <li><a href="?module=pesaje_ganado"><i class="fa fa-circle-o"></i> Pesaje de ganado</a></li>
+          <li><a href="?module=reporte_pesaje_ganado"><i class="fa fa-circle-o"></i> Reporte Pesaje Ganado</a></li>
+          <li><a href="?module=reporte_pesaje_leche"><i class="fa fa-circle-o"></i> Reporte Pesaje Leche</a></li>
         </ul>
       </li>
       <?php
@@ -224,10 +226,43 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
         <ul class="treeview-menu">
           <li><a href="?module=pesaje_leche"><i class="fa fa-circle-o"></i> Pesaje de leche </a></li>
           <li class="active"><a href="?module=pesaje_ganado"><i class="fa fa-circle-o"></i> Pesaje de ganado </a></li>
+          <li><a href="?module=reporte_pesaje_ganado"><i class="fa fa-circle-o"></i>Reporte Pesaje Ganado</a></li>
+          <li><a href="?module=reporte_pesaje_leche"><i class="fa fa-circle-o"></i> Reporte Pesaje Leche</a></li>
         </ul>
       </li>
       <?php
     }
+
+    elseif ($_GET["module"]=="reporte_pesaje_ganado") { ?>
+      <li class="active treeview">
+        <a href="javascript:void(0);">
+          <i class="glyphicon glyphicon-briefcase"></i> <span>Produccion</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="?module=pesaje_leche"><i class="fa fa-circle-o"></i> Pesaje de leche </a></li>
+          <li><a href="?module=pesaje_ganado"><i class="fa fa-circle-o"></i> Pesaje de ganado </a></li>
+          <li class="active"><a href="?module=reporte_pesaje_ganado"><i class="fa fa-circle-o"></i> Reporte Pesaje Ganado</a></li>
+          <li><a href="?module=reporte_pesaje_leche"><i class="fa fa-circle-o"></i> Reporte Pesaje Leche</a></li>
+        </ul>
+      </li>
+      <?php
+    }
+
+    elseif ($_GET["module"]=="reporte_pesaje_leche") { ?>
+      <li class="active treeview">
+        <a href="javascript:void(0);">
+          <i class="glyphicon glyphicon-briefcase"></i> <span>Produccion</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="?module=pesaje_leche"><i class="fa fa-circle-o"></i> Pesaje de leche </a></li>
+          <li><a href="?module=pesaje_ganado"><i class="fa fa-circle-o"></i> Pesaje de ganado </a></li>
+          <li><a href="?module=reporte_pesaje_ganado"><i class="fa fa-circle-o"></i> Reporte Pesaje Ganado</a></li>
+          <li class="active"><a href="?module=reporte_pesaje_leche"><i class="fa fa-circle-o"></i> Reporte Pesaje Leche</a></li>
+        </ul>
+      </li>
+      <?php
+    }
+
     else { ?>
       <li class="treeview">
         <a href="javascript:void(0);">
@@ -236,6 +271,8 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
         <ul class="treeview-menu">
           <li><a href="?module=pesaje_leche"><i class="fa fa-circle-o"></i> Pesaje de leche </a></li>
           <li><a href="?module=pesaje_ganado"><i class="fa fa-circle-o"></i> Pesaje de ganado </a></li>
+          <li><a href="?module=reporte_pesaje_ganado"><i class="fa fa-circle-o"></i> Reporte Pesaje Ganado</a></li>
+          <li><a href="?module=reporte_pesaje_leche"><i class="fa fa-circle-o"></i> Reporte Pesaje Leche</a></li>
         </ul>
       </li>
       <?php
@@ -334,14 +371,14 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
       </li>
     <?php
   }
-  elseif ($_GET["module"]=="stock_report") { ?>
+  elseif ($_GET["module"]=="reporte_pesaje_ganado") { ?>
     <li class="active treeview">
             <a href="javascript:void(0);">
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-            <li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=reporte_pesaje_ganado"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
+            <li class="active"><a href="?module=reporte_pesaje_ganado"><i class="fa fa-circle-o"></i> Reporte pesaje ganado </a></li>
           </ul>
       </li>
     <?php
@@ -353,7 +390,7 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
             </a>
           <ul class="treeview-menu">
             <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i>  Stock de Medicamentos </a></li>
-            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=reporte_pesaje_ganado"><i class="fa fa-circle-o"></i> Reporte Pesaje Ganado </a></li>
           </ul>
       </li>
     <?php

@@ -1,9 +1,9 @@
 
 <?php
 
-$server   = "http://34.207.124.213";
+$server   = "localhost";
 $username = "root";
-$password = "ganaderia";
+$password = "";
 $database = "gestionganadera";
 
 

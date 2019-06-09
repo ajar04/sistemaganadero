@@ -38,7 +38,25 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Coordenadas</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="coordenadas" autocomplete="off" >
+                  
+                  <button onclick="getLocation()">Consultar tu Ubicación Actual</button>
+                  
+                  <input type="text" class="form-control" name="coordenadas" autocomplete="off" > 
+                  <p id="miubicacion"></p>
+                  <script>
+                      var x = document.getElementById("miubicacion");
+                      function getLocation() {
+                        if (navigator.geolocation) {
+                          navigator.geolocation.getCurrentPosition(showPosition);
+                        } else { 
+                          x.innerHTML = "Geolocation is not supported by this browser.";
+                        }
+                      }
+
+                      function showPosition(position) {
+                        x.innerHTML = position.coords.latitude+", "+position.coords.longitude;
+                      }
+                  </script>
                 </div>
               </div>
 
@@ -47,14 +65,29 @@ if ($_GET['form']=='add') { ?>
                     <div class="col-sm-4">
                       <select class="chosen-select" name="dias_ent_anim" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                         <option value=""></option>
-                        <option value="Lunes-Martes">Lunes-Martes</option>
-                        <option value="Lunes-Miercoles">Lunes-Miercoles</option>
-                        <option value="Lunes-Viernes">Lunes-Viernes</option>
+                        <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
-                        <option value="Martes-Jueves">Martes-Jueves</option>
-                        <option value="Miercoles-Viernes">Miercoles-Viernes</option>
-                        <option value="Miercoles-Jueves">Miercoles-Jueves</option>
-                        <option value="Jueves-Viernes">Jueves-Viernes</option>
+                        <option value="Miercoles">Miercoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sabado">Sabado</option>
+                        <option value="Domingo">Domingo</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 control-label">Dias salida Animales</label>
+                    <div class="col-sm-4">
+                      <select class="chosen-select" name="dias_sal_anim" data-placeholder="-- Seleccionar --" autocomplete="off" required>
+                        <option value=""></option>
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miercoles">Miercoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sabado">Sabado</option>
+                        <option value="Domingo">Domingo</option>
                       </select>
                     </div>
                   </div>
@@ -151,7 +184,9 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">Coordenadas</label>
                 <div class="col-sm-5">
+
                   <input type="text" class="form-control" name="coordenadas" autocomplete="off" value="<?php echo $data['coordenadas']; ?>" required>
+
                 </div>
               </div>
 
@@ -159,15 +194,34 @@ elseif ($_GET['form']=='edit') {
                     <label class="col-sm-2 control-label">Dias Entrada Animales</label>
                     <div class="col-sm-4">
                       <select class="chosen-select" name="dias_ent_anim" data-placeholder="-- Seleccionar --" autocomplete="off" required>
+                        
                         <option value="<?php echo $data['dias_ent_anim']; ?>"><?php echo $data['dias_ent_anim']; ?></option>
-                        <option value="Lunes-Martes">Lunes-Martes</option>
-                        <option value="Lunes-Miercoles">Lunes-Miercoles</option>
-                        <option value="Lunes-Viernes">Lunes-Viernes</option>
+                        <option value=""></option>
+                        <option value="Lunes">Lunes</option>
                         <option value="Martes">Martes</option>
-                        <option value="Martes-Jueves">Martes-Jueves</option>
-                        <option value="Miercoles-Viernes">Miercoles-Viernes</option>
-                        <option value="Miercoles-Jueves">Miercoles-Jueves</option>
-                        <option value="Jueves-Viernes">Jueves-Viernes</option>
+                        <option value="Miercoles">Miercoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sabado">Sabado</option>
+                        <option value="Domingo">Domingo</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label class="col-sm-2 control-label">Dias Salida Animales</label>
+                    <div class="col-sm-4">
+                      <select class="chosen-select" name="dias_ent_anim" data-placeholder="-- Seleccionar --" autocomplete="off" required>
+                      
+                        <option value="<?php echo $data['dias_sal_anim']; ?>"><?php echo $data['dias_sal_anim']; ?></option>
+                        <option value=""></option>
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miercoles">Miercoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sabado">Sabado</option>
+                        <option value="Domingo">Domingo</option>
                       </select>
                     </div>
                   </div>

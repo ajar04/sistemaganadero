@@ -52,13 +52,14 @@
       
             <thead>
               <tr>
-                <th class="center">No.</th>
-                <th class="center">Codigo</th>
-                <th class="center">Area</th>
-                <th class="center">Dias Anim</th>
-                <th class="center">Estado</th>
-                <th class="center">Cap. ganado</th>
-                <th class="center">Observacion</th>
+                <th width='40' class="center">Codigo</th>
+                <th width='60' class="center">Area</th>
+                <th width='80' class="center">Dias Entrada</th>
+                <th width='80' class="center">Dias Salida</th>
+                <th width='80' class="center">Estado</th>
+                <th width='60' class="center">Cap. ganado</th>
+                <th width='80' class="center">Coordenadas</th>
+                <th width='80' class="center">Observacion</th>
                 <th></th>
               </tr>
             </thead>
@@ -72,12 +73,14 @@
               $id = format_rupiah($data['id']);
            
               echo "<tr>
-                      <td width='30' class='center'>$no</td>
-                      <td width='80' class='center'>$data[id]</td>
-                      <td width='80' class='center'>$data[area]</td>
+
+                      <td width='40' class='center'>$data[id]</td>
+                      <td width='60' class='center'>$data[area]</td>
                       <td width='80' class='center'>$data[dias_ent_anim]</td>
+                      <td width='80' class='center'>$data[dias_sal_anim]</td>
                       <td width='80' class='center'>$data[est_cerca]</td>
-                      <td width='80' class='center'>$data[cap_ganado]</td>
+                      <td width='60' class='center'>$data[cap_ganado]</td>
+                      <td width='80' class='center'><a href='https://maps.google.com/?q=$data[coordenadas]' target='_blanck'>$data[coordenadas]</td>
                       <td width='80' class='center'>$data[observacion]</td>
                       <td class='center' width='50'>
                         <div>
@@ -92,7 +95,6 @@
               echo "    </div>
                       </td>
                     </tr>";
-              $no++;
             }
             ?>
             </tbody>

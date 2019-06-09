@@ -63,7 +63,12 @@
             <tbody>
             <?php  
 
-            $query = mysqli_query($mysqli, "SELECT id,tipo_vegetacion,nombre,observacion FROM vegetacion ORDER BY id DESC")
+            $query = mysqli_query($mysqli, "SELECT (v.id)as id,(tv.nombre)as nom,(v.nombre)as nombre,(v.observacion)as 
+                                            observacion  
+                                            FROM vegetacion v 
+                                            INNER JOIN t_vegetal tv 
+                                            ON v.tipo_vegetacion=tv.id 
+                                            WHERE v.tipo_vegetacion=tv.id ORDER BY id DESC")
                                             or die('error: '.mysqli_error($mysqli));       
 
             while ($data = mysqli_fetch_assoc($query)) { 
@@ -72,7 +77,7 @@
               echo "<tr>
 
                       <td width='80' class='center'>$data[id]</td>
-                      <td width='80' class='center'>$data[tipo_vegetacion]</td>
+                      <td width='80' class='center'>$data[nom]</td>
                       <td width='180'>$data[nombre]</td>
                       <td width='180'>$data[observacion]</td>
                       <td class='center' width='80'>
